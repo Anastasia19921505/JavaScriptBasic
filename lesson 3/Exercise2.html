@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        let products = [
+            {
+                title: "Товар 1",
+                price: 100,
+                quantity: 3
+            },
+            {
+                title: "Товар 2",
+                price: 150,
+                quantity: 2
+            },
+            {
+                title: "Товар 3",
+                price: 500,
+                quantity: 4
+            }
+        ];
+
+        let sum = 0;
+        for (let item of products) {
+            sum += item.price * item.quantity;
+            console.log(`${item.title}: цена ${item.price} количество ${item.quantity}. Сумма по позиции: ${item.price * item.quantity}`);
+        }
+
+        console.log(`Общая сумма: ${sum}`);
+
+
+
+    </script>
+</body>
+
+</html>
