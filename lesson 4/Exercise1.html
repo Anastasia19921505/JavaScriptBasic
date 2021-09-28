@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        function transformNumberToObject(number) {
+            obj.ed = number[2];
+            obj.doz = number[1];
+            obj.hund = number[0];
+        }
+
+        function requestNumer() {
+            let number = prompt("Введите число от 0 до 999");
+            if (number < 0 || number > 999 || isNaN(number)) {
+                alert("Вы ввели некорректное число");
+                requestNumer();
+            }
+            return number;
+        };
+        let obj = {};
+        transformNumberToObject(requestNumer());
+        console.log(`Результат. Сотни: ${obj.hund}, десятки: ${obj.doz}, единицы: ${obj.ed}`);
+
+    </script>
+</body>
+
+</html>

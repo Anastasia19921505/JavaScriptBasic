@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="text.js"></script>
+    <script>
+        "use strict"
+
+        let prize = 0;
+        let prizeFix = 0;
+
+        for (let obj of questions) {
+            obj.answerUser = getUserAnswer(obj);
+            if (obj.answerUser == obj.answerTrue) {
+                prize += obj.price;
+                prizeFix = obj.prizeFix;
+                alert(`Это правильный ответ! Ваш выйгрыш составляет: ${prize} рублей`)
+            } else {
+                alert(`Это неправильный ответ. Ваш выйгрыш составил: ${prizeFix} рублей`);
+                alert(`${obj.question} \n Варианты ответов: \n ${obj.answer1} ${obj.answer2} ${obj.answer3} ${obj.answer4} \n Правильный ответ ${obj.answerTrue}`)
+                break;
+            }
+        }
+
+        function getUserAnswer(obj) {
+            let userAnswer = +prompt(`Вопрос ${obj.qN} \n ${obj.question} \n Варианты ответов: \n ${obj.answer1} ${obj.answer2} ${obj.answer3} ${obj.answer4} \n Несгораемая сумма - ${obj.prizeFix} \n Стоимость вопроса - ${obj.price}`);
+            if (isNaN(userAnswer) || !isFinite(userAnswer)) {
+                alert('Вы ввели недопустимый символ');
+                getUserAnswer(obj);
+            }
+            else if (userAnswer < 1 || userAnswer > 4) {
+                alert('Ваше число выходит из допустимого диапозона');
+                getUserAnswer(obj);
+            }
+            return userAnswer;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
