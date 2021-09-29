@@ -12,10 +12,25 @@
     <script>
         "use strict"
 
-        function transformNumberToObject(number) {
-            obj.ed = number[2];
-            obj.doz = number[1];
-            obj.hund = number[0];
+        function transformNumberToObject(number, n) {
+            switch (n) {
+                case 3:
+                    obj.ed = number[2];
+                    obj.doz = number[1];
+                    obj.hund = number[0];
+                    console.log(`Результат. Сотни: ${obj.hund}, десятки: ${obj.doz}, единицы: ${obj.ed}`);
+                    break;
+                case 2:
+                    obj.ed = number[1];
+                    obj.doz = number[0];
+                    console.log(`Результат. Десятки: ${obj.doz}, единицы: ${obj.ed}`);
+                    break;
+                case 1:
+                    obj.ed = number[0];
+                    console.log(`Результат. Единицы: ${obj.ed}`);
+                    break;
+            }
+
         }
 
         function requestNumer() {
@@ -26,9 +41,11 @@
             }
             return number;
         };
+
         let obj = {};
-        transformNumberToObject(requestNumer());
-        console.log(`Результат. Сотни: ${obj.hund}, десятки: ${obj.doz}, единицы: ${obj.ed}`);
+        let number = requestNumer();
+        let n = number.length;
+        transformNumberToObject(number, n);
 
     </script>
 </body>
