@@ -1,0 +1,41 @@
+table
+    border: 3px solid rgb(143, 111, 92)
+    border-collapse: collapse
+
+tr, td
+    border: 1px solid gray
+    width: 50px
+    height: 50px
+    font-weight: bold
+    margin: auto
+    text-align: center
+.blackTrTd
+    background-color: rgba(88, 56, 56, 0.863)
+.color__white-text
+    color: white
+.color__black-text
+    color: black
+
+.wrap
+    display: flex
+
+.margins
+    background: burlywood
+    box-sizing: border-box
+    justify-content: center
+    align-items: center
+    display: flex
+    font-weight: bold
+    & div
+        margin: auto 22px
+    &__row
+        height: 50px
+        width: 529px
+        &-down div
+            transform: rotate(-180deg)
+    &__column
+        height: 529px
+        width: 50px
+        flex-direction: column-reverse
+        &-right div
+            transform: rotate(-180deg)

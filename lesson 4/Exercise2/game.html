@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quest</title>
+    <script src="text.js"></script>
+
+    <script>
+        //После игры необходимо спросить номер вопроса. 
+        //По номеру вопроса нужно вывести текст вопроса и текст выбранного ответа
+
+        let event, ok;
+        let qNumer2, qAnswer1, qAnswer2, qUser;
+
+        function getAnswer(question, answer1, answer2, n) {
+            do {
+                ok = false;
+                event = +prompt(question + answer1 + answer2 + '-1 - Выход из игры');
+
+                if (event == -1) {
+                    break;
+                }
+                else {
+                    ok = isAnswer(n, event);
+                }
+            } while (!ok);
+            return event
+        };
+        function numberQuestion() {
+            let numberQ = +prompt('Выберите вопрос, на котрой хотите увидеть свой ответ. Для выхода введите -1');
+            if (numberQ == -1) {
+                return;
+            } else if (numberQ <= 0 || numberQ > 4 || isNaN(numberQ)) {
+                alert("Вы ввели некорректное число");
+                numberQuestion();
+            }
+            outputAnswer(numberQ);
+        }
+
+
+        function outputAnswer(n) {
+            switch (n) {
+                case 1:
+                    alert(`Вопрос 1: \n ${works.a00} \n Варианты ответов: \n ${works.a1} ${works.a2} \n Ваш ответ: ${works.userAnswerA}`);
+                    numberQuestion();
+                    break;
+                case 2:
+                    alert(`Вопрос 2: \n ${qNumer2} \n Варианты ответов: \n ${qAnswer1} ${qAnswer2} \n Ваш ответ: ${qUser}`);
+                    numberQuestion();
+                    break;
+                case 3:
+                    alert(`Вопрос 1: \n ${works.d00} \n Варианты ответов: \n ${works.d1} ${works.d2} \n Ваш ответ: ${works.userAnswerD}`);
+                    numberQuestion();
+            }
+        }
+        works.userAnswerA = getAnswer(works.a00, works.a1, works.a2);
+        switch (event) {
+            case 1: // Первое действие  - если в первом окне ввели 1 то открываем серию окон - окно 2
+                works.userAnswerB = getAnswer(works.b00, works.b1, works.b2);
+                qNumer2 = works.b00, qAnswer1 = works.b1, qAnswer2 = works.b2, qUser = works.userAnswerB;
+                switch (event) {
+                    case 1: // Второе действие, если во 2 окне ввели 1 то переходим на 4 окно   
+                    case 2: // Второе действие   Если ввели 2 то также переходим на 4 окно
+                        works.userAnswerD = getAnswer(works.d00, works.d1, works.d2);
+                        break;
+                    case -1: // Второе действие
+                        break;
+                    default:
+                        alert('Ошибка');
+                }
+                break;
+
+            case 2: // Первое действие    Если в 1 окне ввели 2 то переходим к 3 окну
+                works.userAnswerC = getAnswer(works.c00, works.c1, works.c2);
+                qNumer2 = works.c00, qAnswer1 = works.c1, qAnswer2 = works.c2, qUser = works.userAnswerC;
+                switch (event) {
+                    case 1: // Второе действие, если во 2 окне ввели 1 то переходим на 4 окно   
+                    case 2: // Второе действие   Если ввели 2 то также переходим на 4 окно
+                        works.userAnswerD = getAnswer(works.d00, works.d1, works.d2);
+                        break;
+                    case -1: // Второе действие
+                        break;
+                    default:
+                        alert('Ошибка');
+                }
+        }
+        alert("Спасибо за игру!")
+        numberQuestion();
+
+
+        //------------------------------------------
+        function isAnswer(q, event) {
+            if (isNaN(event) || !isFinite(event)) {
+                alert('Вы ввели недопустимый символ');
+                return false;
+            }
+            else if (event < 1 || event > q) {
+                alert('Ваше число выходит из допустимого диапозона');
+                return false;
+            }
+            return true;
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
