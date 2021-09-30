@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div></div>
+    <script>
+        "use strict"
+        let block = document.querySelector("div");
+        let blockCenter = document.createElement("div");
+        blockCenter.classList.add("wrap");
+        block.append(blockCenter);
+
+        let table = document.createElement("table");
+        for (let i = 0; i < 8; i++) {
+            let tr = document.createElement("tr");
+            tr.setAttribute("data-x", (i + 1));
+            table.append(tr);
+            for (let j = 0; j < 8; j++) {
+                let td = document.createElement("td");
+                td.setAttribute("data-y", (j + 1));
+                tr.append(td);
+                if (i % 2 != 0) {
+                    if (j % 2 == 0) {
+                        td.classList.add("blackTrTd");
+                    }
+                } else {
+                    if (j % 2 != 0) {
+                        td.classList.add("blackTrTd");
+                    }
+                }
+            }
+        }
+        blockCenter.append(table);
+
+        let marginsTextUp = document.createElement("div");
+        marginsTextUp.classList.add("margins", "margins__row");
+        marginsTextUp.innerHTML = "<div></div><div>A</div><div>B</div><div>C</div><div>D</div><div>E</div><div>F</div><div>G</div><div>H</div><div></div>";
+
+        let marginsTextDown = document.createElement("div");
+        marginsTextDown.classList.add("margins", "margins__row", "margins__row-down");
+        marginsTextDown.innerHTML = "<div></div><div>A</div><div>B</div><div>C</div><div>D</div><div>E</div><div>F</div><div>G</div><div>H</div><div></div>";
+
+        blockCenter.insertAdjacentElement("beforebegin", marginsTextUp);
+        blockCenter.insertAdjacentElement("afterend", marginsTextDown);
+
+        let marginNumberLeft = document.createElement("div");
+        marginNumberLeft.classList.add("margins", "margins__column");
+        marginNumberLeft.innerHTML = "<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div>";
+        blockCenter.insertAdjacentElement("afterbegin", marginNumberLeft);
+
+        let marginNumberRight = document.createElement("div");
+        marginNumberRight.classList.add("margins", "margins__column", "margins__column-right");
+        marginNumberRight.innerHTML = "<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div>";
+        blockCenter.insertAdjacentElement("beforeend", marginNumberRight);
+
+    </script>
+</body>
+
+</html>

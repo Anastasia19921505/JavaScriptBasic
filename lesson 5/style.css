@@ -1,0 +1,79 @@
+table {
+  border: 3px solid #8f6f5c;
+  border-collapse: collapse;
+}
+
+tr, td {
+  border: 1px solid gray;
+  width: 50px;
+  height: 50px;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+}
+
+.blackTrTd {
+  background-color: rgba(88, 56, 56, 0.863);
+}
+
+.color__white-text {
+  color: rgb(235, 212, 197);
+}
+
+.color__black-text {
+  color: black;
+}
+.figura svg {
+  width: 30px;
+  height: 30px;
+}
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.margins {
+  background: burlywood;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+}
+
+.margins div {
+  margin: auto 22px;
+}
+
+.margins__row {
+  height: 50px;
+  width: 529px;
+}
+
+.margins__row-down div {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.margins__column {
+  height: 529px;
+  width: 50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.margins__column-right div {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+/*# sourceMappingURL=style.css.map */
