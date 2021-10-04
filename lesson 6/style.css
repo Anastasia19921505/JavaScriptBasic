@@ -1,0 +1,42 @@
+.wrapper {
+  margin: auto;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.product {
+  width: 25%;
+  height: 95%;
+  border: 1px solid rgb(136, 135, 133);
+  background: rgb(180, 179, 178);
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.product h1 {
+  font-size: 20px;
+  height: 40px;
+}
+img {
+  height: 300px;
+}
+.moving {
+  display: flex;
+  justify-content: center;
+}
+.moving button {
+  height: 50px;
+  width: 150px;
+  margin: 20px;
+  color: white;
+  background: rgb(180, 179, 178);
+}
+.basket {
+  border: 1px solid rosybrown;
+}
+.basketPrice {
+  color: black;
+  font-size: 22px;
+}
